@@ -21,8 +21,11 @@ public class FieldBasedDITest {
     @Test
     void testSetterBasedDI() {
         CustomerService service = context.getBean(CustomerService.class);
-        CustomerRepository repository = context.getBean(CustomerRepository.class);
 
-        Assertions.assertSame(repository, service.getCustomerRepository());
+        CustomerRepository normalCustomerRepository = context.getBean("normalCustomerRepository", CustomerRepository.class);
+        CustomerRepository premiumCustomerRepository = context.getBean("premiumCustomerRepository", CustomerRepository.class);
+
+        Assertions.assertSame(normalCustomerRepository, service.getNormalCustomerRepository());
+        Assertions.assertSame(premiumCustomerRepository, service.getPremiumCustomerRepository());
     }
 }
