@@ -1,4 +1,4 @@
-package com.charuniverse.spring.core.course.m_import;
+package com.charuniverse.spring.core.configuration;
 
 import com.charuniverse.spring.core.data.Bar;
 import org.springframework.context.annotation.Bean;
