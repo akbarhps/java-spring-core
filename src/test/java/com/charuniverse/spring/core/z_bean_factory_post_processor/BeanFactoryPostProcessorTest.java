@@ -1,4 +1,4 @@
-package com.charuniverse.spring.core.z_;
+package com.charuniverse.spring.core.z_bean_factory_post_processor;
 
 import com.charuniverse.spring.core.course.z_bean_factory_post_processor.BeanFactoryPostProcessorConfiguration;
 import com.charuniverse.spring.core.data.Foo;
