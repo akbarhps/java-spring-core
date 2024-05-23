@@ -5,20 +5,18 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.core.Ordered;
 
-import java.util.UUID;
-
-public class IdGeneratorBeanPostProcessor implements BeanPostProcessor, Ordered {
+public class PrefixIdGeneratorBeanPostProcessor implements BeanPostProcessor, Ordered {
 
     @Override
     public int getOrder() {
-        return 1;
+        return 2;
     }
 
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
         if (bean instanceof IdAware) {
             IdAware idAware = (IdAware) bean;
-            idAware.setId(UUID.randomUUID().toString());
+            idAware.setId("PREFIX-" + idAware.getId());
         }
 
         return bean;
